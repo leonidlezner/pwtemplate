@@ -1,0 +1,42 @@
+{
+  "name": "snapspace_template",
+  "version": "1.0.0",
+  "description": "Template for snapspace.org",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Leonid Lezner",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "*",
+    "gulp": "*",
+    "gulp-autoprefixer": "*",
+    "gulp-concat": "*",
+    "browser-sync": "*",
+    "gulp-minify-css": "*",
+    "gulp-plumber": "*",
+    "gulp-postcss": "*",
+    "gulp-stylus": "*",
+    "lost": "*",
+    "lost-grid": "*",
+    "nib": "*",
+    "plumber": "*",
+    "postcss": "*",
+    "stylus": "*",
+    "vinyl-ftp": "*",
+    "typographic": "*",
+    "poststylus": "*",
+    "del": "*",
+    "gulp-debug": "*",
+    "gulp-ignore": "*",
+    "stylus-normalize": "*",
+    "gulp-concat-vendor": "*",
+    "run-sequence": "*",
+    "gulp-changed": "*",
+    "gulp-imagemin": "*",
+    "gulp-favicons": "*",
+    "gulp-rimraf": "*",
+    "gulp-include": "*"
+  }
+}

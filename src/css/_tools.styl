@@ -1,0 +1,27 @@
+nav-list()
+  ul
+    margin 0
+    padding 0
+    li
+      list-style none
+      a
+        display block
+        text-decoration none
+
+abs-path-to-image(relative)
+  return '../img/' + relative
+
+url(str)
+    return unquote('url(' + abs-path-to-image(str) + ')')
+
+img-height(img)
+  return image-size(abs-path-to-image(img))[1]
+
+img-width(img)
+  return image-size(abs-path-to-image(img))[0]
+
+reset-list()
+  &, ul, li, ol
+    list-style none
+    padding 0
+    margin 0

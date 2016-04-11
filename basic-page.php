@@ -1,0 +1,3 @@
+<?php
+
+$bodycopy = renderView($page);
