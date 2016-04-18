@@ -27,12 +27,11 @@
         <div id="top-bar">
           <header class="wrapper">
             <div id="main-nav">
-              <ul class="horizontal-menu">
-                <li><?php echo getLinkForPage('id=1'); ?></li>
-                <?php foreach ($pages->get('id=1')->children as $child): ?>
-                <li><?php echo getLinkForPage($child); ?></li>
-                <?php endforeach; ?>
-              </ul>
+              <?php
+                echo renderPartial('mainmenu', array(
+                  'class' => 'horizontal-menu'
+                ));
+              ?>
             </div>
             <div id="social-bar">
               <ul class="horizontal-menu">
@@ -48,14 +47,12 @@
 
         <div id="content">
           <h1><?php echo $page->get('title|name'); ?></h1>
-
           <?php echo $bodycopy; ?>
         </div>
 
         <footer id="bottom-bar">
           Footer
         </footer>
-
 
         <!-- Scripts -->
         <?php echo versioned_javascript($config->urls->templates.'dist/js/vendor.js'); ?>

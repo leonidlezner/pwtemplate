@@ -1,0 +1,40 @@
+<?php
+
+$menu = getModuleOrWarn("MarkupSimpleNavigation");
+
+if($menu) {
+  $excludes = array(
+    'blogpost'
+  );
+
+  $options = array(
+      'parent_class' => 'parent',
+      'current_class' => 'active',
+      'has_children_class' => 'has-children',
+      'levels' => true,
+      'levels_prefix' => 'level-',
+      'max_levels' => null,
+      'firstlast' => true,
+      'collapsed' => false,
+      'show_root' => false,
+      'selector' => 'template!='.implode($excludes, '|'),
+      'selector_field' => 'nav_selector',
+      'outer_tpl' => sprintf('<ul class="%s">||</ul>', $parameter['class']),
+      'inner_tpl' => '<ul>||</ul>',
+      'list_tpl' => '<li%s>||</li>',
+      'list_field_class' => '',
+      'item_tpl' => '<a href="{url}">{title}</a>',
+      'item_current_tpl' => '<a href="{url}">{title}</a>',
+      'xtemplates' => '',
+      'xitem_tpl' => '<a href="{url}">{title}</a>',
+      'xitem_current_tpl' => '<span>{title}</span>',
+      'date_format' => 'Y/m/d',
+      'code_formatting' => false,
+      'debug' => false
+  );
+
+
+  echo $menu->render($options);
+}
+
+?>

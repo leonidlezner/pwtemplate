@@ -18,7 +18,7 @@ function renderView($page, $view_name = null, $parameters = null) {
   return ob_get_clean();
 }
 
-function renderPartial($name, $parameter) {
+function renderPartial($name, $parameter = array()) {
   global $config;
   $path = $config->paths->templates."partials/".$name.".phtml";
   ob_start();
@@ -94,4 +94,15 @@ function getLinkForPage($selector) {
   }
 
   return sprintf('<a href="%s">%s</a>', $page->httpUrl, $page->title);
+}
+
+function getModuleOrWarn($name) {
+  $module = wire('modules')->get($name);
+
+  if(!$module) {
+    echo sprintf('<div class="error module-missing">Please install module: %s</div>', $name);
+    return null;
+  } else {
+    return $module;
+  }
 }
