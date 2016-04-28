@@ -265,7 +265,12 @@ th {
   min-height: 500px;
 }
 #bottom-bar {
-  background: #00f;
+  background: #000;
+}
+#footer-content {
+  text-align: center;
+  color: #999;
+  padding: 20px 0;
 }
 @media screen and (max-width: 700px) {
   .grid-small div.item,
@@ -369,27 +374,95 @@ th {
 .debug p {
   outline: 1px dashed #00f;
 }
-.horizontal-menu,
-.horizontal-menu ul,
-.horizontal-menu li,
-.horizontal-menu ol {
+#top-bar .horizontal-menu,
+#top-bar .horizontal-menu ul,
+#top-bar .horizontal-menu li,
+#top-bar .horizontal-menu ol {
   list-style: none;
   padding: 0;
   margin: 0;
 }
-.horizontal-menu li {
+#top-bar .horizontal-menu li {
+  position: relative;
   display: inline-block;
 }
-.horizontal-menu li a {
+#top-bar .horizontal-menu li a {
   color: #efefef;
   display: block;
-  padding: 5px 8px;
+  padding: 10px 10px;
   text-decoration: none;
   text-transform: uppercase;
-  font-size: 0.9em;
+  font-size: 0.8em;
+  font-weight: bold;
+}
+#top-bar .horizontal-menu li a:hover {
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+  color: #999;
+}
+#top-bar .horizontal-menu > li:first-child a {
+  padding-left: 0;
+}
+#top-bar .horizontal-menu > li:last-child a {
+  padding-right: 0;
+}
+#top-bar .horizontal-menu li.active > a {
+  color: $active-color;
+}
+#top-bar .horizontal-menu li.level-1.active > a {
+  color: #fff;
+}
+#top-bar .horizontal-menu li > ul {
+  display: none;
+  position: absolute;
+  background: #333;
+}
+#top-bar .horizontal-menu li > ul li {
+  display: block;
+}
+#top-bar .horizontal-menu li > ul li a {
+  text-transform: none;
+  padding: 5px 25px;
+}
+#top-bar .horizontal-menu li > ul li a:hover {
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+  background: #666;
+  color: #000;
+}
+#top-bar .horizontal-menu li:hover ul {
+  display: block;
 }
 #social-bar .horizontal-menu {
   text-align: right;
+}
+#footer-bar .horizontal-menu {
+  text-align: center;
+}
+#footer-bar .horizontal-menu,
+#footer-bar .horizontal-menu ul,
+#footer-bar .horizontal-menu li,
+#footer-bar .horizontal-menu ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+#footer-bar .horizontal-menu li {
+  display: inline-block;
+}
+#footer-bar .horizontal-menu li a {
+  color: #efefef;
+  display: block;
+  padding: 10px 10px;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 0.8em;
+  font-weight: bold;
+}
+#footer-bar .horizontal-menu li a:hover {
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+  color: #999;
 }
 #manager-bar {
   text-align: center;
@@ -414,7 +487,7 @@ th {
   color: #008000;
 }
 html {
-  font-family: sans-serif;
+  font-family: 'Open Sans';
   font-weight: 300;
   color: #666;
   font-size: 14px;

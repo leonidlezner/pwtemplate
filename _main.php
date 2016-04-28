@@ -16,7 +16,9 @@
         <?php echo versioned_stylesheet($config->urls->templates.'dist/css/main.css'); ?>
 
         <!-- Fonts -->
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600' rel='stylesheet' type='text/css'>
     </head>
+
     <body>
         <!--[if lt IE 8]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
@@ -43,15 +45,23 @@
           </header>
         </div>
 
-        <?php #echo renderMenu($menu, 1041); ?>
-
-        <div id="content">
-          <h1><?php echo $page->get('title|name'); ?></h1>
+        <div id="content" class="wrapper">
           <?php echo $bodycopy; ?>
         </div>
 
         <footer id="bottom-bar">
-          Footer
+          <div class="wrapper">
+            <div id="footer-bar">
+              <ul class="horizontal-menu">
+                <li><a href="#">Twitter</a></li>
+                <li><a href="#">Flickr</a></li>
+                <li><a href="#">Instagram</a></li>
+              </ul>
+            </div>
+            <div id="footer-content">
+              Copyright bla bla..
+            </div>
+          </div>
         </footer>
 
         <!-- Scripts -->
