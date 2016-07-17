@@ -21,15 +21,10 @@ var rimraf = require('rimraf');
 var include = require("gulp-include");
 
 var app_information = {
-  appName: "snapspace.org",
-  appDescription: "snapspace.org",
-  developerName: "snapspace.org"
+  appName: "xyz.org",
+  appDescription: "xyz.org",
+  developerName: "xyz.org"
 }
-
-var language_files = {
-  'default': './js/language/de/*.js',
-  'english': './js/language/en/*.js'
-};
 
 var source_files = {
   styles: './css/*.styl',
@@ -44,14 +39,6 @@ var dist_folders = {
   scripts: './../dist/js/',
   images: './../dist/img/',
 };
-
-var ftp_conn = ftp.create({
-  host:     '',
-  user:     '',
-  password: '',
-  parallel: 10,
-  log:      ftp.log
-});
 
 gulp.task('favicons', function() {
   var dir = "./../dist/favicons/";
@@ -102,16 +89,8 @@ gulp.task('styles', function() {
             poststylus(['lost', 'autoprefixer'])
           ]
       }))
-      //.pipe(minifyCss({compatibility: 'ie8'}))
+      .pipe(minifyCss({compatibility: 'ie8'}))
       .pipe(gulp.dest(dist_folders.styles));
-});
-
-gulp.task('languages', function() {
-  for(var lang in language_files) {
-    gulp.src(language_files[lang])
-        .pipe(vendor('lang_' + lang + '.js'))
-        .pipe(gulp.dest(dist_folders.scripts));
-  }
 });
 
 gulp.task('scripts', function() {
@@ -142,7 +121,7 @@ gulp.task('ws', function() {
   });
 
   gulp.watch(source_files.scripts, function() {
-    runSequence('scripts', 'languages', browserSync.reload);
+    runSequence('scripts', browserSync.reload);
   });
 });
 
@@ -152,7 +131,7 @@ gulp.task('watch', ['browser-sync'], function() {
   });
 
   gulp.watch(source_files.scripts, function() {
-    runSequence('scripts', 'languages', browserSync.reload);
+    runSequence('scripts', browserSync.reload);
   });
 
   gulp.watch(source_files.images, function() {
@@ -175,5 +154,5 @@ gulp.task('clean', function (cb) {
 });
 
 gulp.task('default', function() {
-  runSequence('clean', 'styles', 'scripts', 'images', 'languages', 'favicons');
+  runSequence('clean', 'styles', 'scripts', 'images', 'favicons');
 });

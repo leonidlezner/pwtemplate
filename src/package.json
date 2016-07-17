@@ -1,13 +1,14 @@
 {
-  "name": "snapspace_template",
+  "name": "processwire_template",
   "version": "1.0.0",
-  "description": "Template for snapspace.org",
+  "description": "Template for ProcessWire",
   "main": "gulpfile.js",
+  "repository": "https://github.com/leonidlezner/pwtemplate/src",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Leonid Lezner",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "autoprefixer": "*",
     "gulp": "*",
@@ -19,7 +20,7 @@
     "gulp-postcss": "*",
     "gulp-stylus": "*",
     "lost": "*",
-    "lost-grid": "*",
+    "lost": "*",
     "nib": "*",
     "plumber": "*",
     "postcss": "*",

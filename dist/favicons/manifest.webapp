@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "name": "xyz.org",
+  "description": "xyz.org",
+  "icons": {
+    "60": "/site/templates/dist/favicons/firefox_app_60x60.png",
+    "128": "/site/templates/dist/favicons/firefox_app_128x128.png",
+    "512": "/site/templates/dist/favicons/firefox_app_512x512.png"
+  },
+  "developer": {
+    "name": "xyz.org",
+    "url": "/"
+  }
+}
