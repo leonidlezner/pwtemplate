@@ -6,9 +6,10 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title><?php echo $headline; ?> - <?php echo $site_name; ?> - <?php echo $site_title; ?></title>
+        <title><?php echo $headline; ?></title>
         <meta name="description" content="<?php echo $site_meta_description; ?>">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+
         <!-- Favicons -->
         <?php @include("./dist/favicons/favicons.html"); ?>
 
@@ -24,25 +25,10 @@
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
-        <?php include('_adminbar.php'); ?>
+        <?php include('_manager-bar.inc'); ?>
 
         <div id="top-bar">
-          <header class="wrapper">
-            <div id="main-nav">
-              <?php
-                echo renderPartial('mainmenu', array(
-                  'class' => 'horizontal-menu'
-                ));
-              ?>
-            </div>
-            <div id="social-bar">
-              <ul class="horizontal-menu">
-                <li><a href="#">Twitter</a></li>
-                <li><a href="#">Flickr</a></li>
-                <li><a href="#">Instagram</a></li>
-              </ul>
-            </div>
-          </header>
+
         </div>
 
         <div id="content" class="wrapper">
@@ -50,18 +36,7 @@
         </div>
 
         <footer id="bottom-bar">
-          <div class="wrapper">
-            <div id="footer-bar">
-              <ul class="horizontal-menu">
-                <li><a href="#">Twitter</a></li>
-                <li><a href="#">Flickr</a></li>
-                <li><a href="#">Instagram</a></li>
-              </ul>
-            </div>
-            <div id="footer-content">
-              Copyright bla bla..
-            </div>
-          </div>
+
         </footer>
 
         <!-- Scripts -->

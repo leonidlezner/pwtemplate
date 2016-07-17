@@ -160,28 +160,6 @@ gulp.task('watch', ['browser-sync'], function() {
   });
 });
 
-gulp.task('ftp_css', function() {
-  return gulp.src('../dist/css/*.css', { base: '.', buffer: false } )
-    .pipe(debug({title: "upload styles"}))
-    .pipe(ftp_conn.dest('/templates/dist'));
-});
-
-gulp.task('ftp_js', function() {
-  return gulp.src('../dist/js/*.js', { base: '.', buffer: false } )
-    .pipe(debug({title: "upload scripts"}))
-    .pipe(ftp_conn.dest('/templates/dist/'));
-});
-
-gulp.task('watchftp', ['browser-sync-ftp'], function() {
-  gulp.watch(source_files.styles, function() {
-    runSequence('styles', 'ftp_css', browserSync.reload);
-  });
-
-  gulp.watch(source_files.scripts, function() {
-    runSequence('scripts', 'ftp_js', browserSync.reload);
-  });
-});
-
 gulp.task('browser-sync', function() {
   browserSync.init({
     proxy: "http://localhost:8888/"
@@ -189,12 +167,6 @@ gulp.task('browser-sync', function() {
     server: {
       baseDir: "./../"
     }*/
-  });
-});
-
-gulp.task('browser-sync-ftp', function() {
-  browserSync.init({
-    proxy: "http://preview.snapspace.org"
   });
 });
 
