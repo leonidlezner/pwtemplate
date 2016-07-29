@@ -1,0 +1,20 @@
+<?php if(count(ProcessWire\wire('notices'))): ?>
+<div id="messages">
+<?php foreach (ProcessWire\wire('notices') as $notice): ?>
+  <?php
+
+    if($notice->class != 'Session') {
+      continue;
+    }
+
+    if ($notice instanceof NoticeError) {
+      $class = "error";
+    } else {
+      $class = "information";
+    }
+  ?>
+  <div class="<?php echo $class; ?>"><?php echo $notice->text; ?></a>
+<?php endforeach; ?>
+</div>
+<?php ProcessWire\wire('session')->removeNotices(); ?>
+<?php endif; ?>
