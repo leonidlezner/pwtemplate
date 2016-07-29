@@ -1,6 +1,6 @@
 <?php
 
-function renderView($page, $view_name = null, $parameters = null) {
+function renderView($page, $view_name = null, $parameters = array()) {
   global $config;
 
   if($view_name == null) {
@@ -13,17 +13,17 @@ function renderView($page, $view_name = null, $parameters = null) {
     return "<p>File not found: " . $path . "</p>";
   }
 
-  ob_start();
-  include($path);
-  return ob_get_clean();
+  $view = new TemplateFile($path);
+  $view->parameters = $parameters;
+  return $view->render();
 }
 
 function renderPartial($name, $parameter = array()) {
   global $config;
   $path = $config->paths->templates."partials/".$name.".phtml";
-  ob_start();
-  include($path);
-  return ob_get_clean();
+  $view = new TemplateFile($path);
+  $view->parameters = $parameters;
+  return $view->render();
 }
 
 // Add ?v=[last modified time] to style sheets

@@ -13,7 +13,7 @@
       $class = "information";
     }
   ?>
-  <div class="<?php echo $class; ?>"><?php echo $notice->text; ?></a>
+  <div class="<?php echo $class; ?> <?php echo $notice->class; ?>"><?php echo $notice->text; ?></div>
 <?php endforeach; ?>
 </div>
 <?php ProcessWire\wire('session')->removeNotices(); ?>
