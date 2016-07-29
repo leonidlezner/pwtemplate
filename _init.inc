@@ -2,6 +2,7 @@
 
 include_once("includes/functions.php");
 include_once("includes/helpers.php");
+include_once("includes/forms.php");
 
 $admin_name = "processwire";
 
