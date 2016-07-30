@@ -28,7 +28,7 @@
         <?php echo renderPartial('manager-bar'); ?>
 
         <div id="top-bar">
-          <?php echo getLinkForPage('template=login'); ?> | <?php echo getLinkForPage('template=logout'); ?>
+          <?php /*echo getLinkForPage('template=login'); ?> | <?php echo getLinkForPage('template=logout');*/ ?>
         </div>
 
         <?php echo renderPartial('messages'); ?>
