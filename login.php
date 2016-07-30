@@ -34,7 +34,7 @@ $form->append($field);
 $field = $modules->get("InputfieldHidden");
 $field->attr('id+name', 'redirect');
 $form->append($field);
-$field->value = $sanitizer->int($input->r);
+$field->value = $sanitizer->intUnsigned($input->r);
 
 $submit = $modules->get("InputfieldSubmit");
 $submit->attr("value", "Login");
@@ -55,7 +55,7 @@ if($input->post->submit) {
         $session->message(sprintf(__("Welcome back, %s!"), $new_user->name));
 
         if($redirect->value) {
-          $page_id = $sanitizer->int($redirect->value);
+          $page_id = $sanitizer->intUnsigned($redirect->value);
           $session->redirect($pages->get($page_id)->url());
         } else {
           $session->redirect("/");
