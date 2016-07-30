@@ -20,3 +20,5 @@ $subnav = $page->children;
 
 # Store the page for edit link
 $target = $page;
+
+#checkUserPermission();

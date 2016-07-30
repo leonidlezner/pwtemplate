@@ -1,5 +1,12 @@
 <?php
 
+/*
+  Usage: Set the access control in the template of the secured page
+  to 'yes'. Uncheck the guest access and set the redirect page to custom value:
+
+  Redirect to another URL: /login?r={id}
+*/
+
 if($user->isLoggedin()) {
   $session->message(sprintf(__("You are already logged in, %s!"), $user->name));
   // TODO: Specify the redirect path
@@ -27,7 +34,7 @@ $form->append($field);
 $field = $modules->get("InputfieldHidden");
 $field->attr('id+name', 'redirect');
 $form->append($field);
-$field->value = $sanitizer->name($input->r);
+$field->value = $sanitizer->int($input->r);
 
 $submit = $modules->get("InputfieldSubmit");
 $submit->attr("value", "Login");
@@ -48,7 +55,8 @@ if($input->post->submit) {
         $session->message(sprintf(__("Welcome back, %s!"), $new_user->name));
 
         if($redirect->value) {
-          $session->redirect(base64url_decode($redirect->value));
+          $page_id = $sanitizer->int($redirect->value);
+          $session->redirect($pages->get($page_id)->url());
         } else {
           $session->redirect("/");
         }
