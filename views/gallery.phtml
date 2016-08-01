@@ -1,0 +1,10 @@
+<?php if(count($page->slideshow) > 0): ?>
+
+<ul>
+  <?php foreach($page->slideshow as $image): ?>
+    <?php $thumbnail = $image->height(100); ?>
+  <li><img src="<?php echo $thumbnail->httpUrl; ?>" /></li>
+  <?php endforeach; ?>
+</ul>
+
+<?php endif; ?>
