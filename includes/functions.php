@@ -96,13 +96,42 @@ function getLinkForPage($selector) {
   return sprintf('<a href="%s">%s</a>', $page->httpUrl, $page->title);
 }
 
-function getModuleOrWarn($name) {
-  $module = wire('modules')->get($name);
+function imageSizeExists($image, $width, $height = 0) {
+  $base_file_name = $image->filename;
 
-  if(!$module) {
-    echo sprintf('<div class="error module-missing">Please install module: %s</div>', $name);
-    return null;
+  $path_parts = pathinfo($base_file_name);
+
+  if(abs($height) + abs($width) > 0) {
+    $size = sprintf('.%dx%d', $width, $height);
   } else {
-    return $module;
+    $size = '';
+  }
+
+  $variation_path = sprintf('%s/%s%s.%s', $path_parts['dirname'], $path_parts['filename'], $size, $path_parts['extension']);
+
+  if(file_exists($variation_path)) {
+    return true;
+  }
+
+  return false;
+}
+
+function check_requirements() {
+  global $config;
+  $path = $config->paths->templates."/requirements.txt";
+  $names = file($path);
+  
+  $modules = wire('modules');
+  
+  foreach($names as $id => $name) {
+    $name = trim($name);
+    
+    if(!$name) {
+      continue;
+    }
+    
+    if($modules->isInstalled($name) == false) {
+      throw new WireException("Module " . $name . " is not installed! Check templates/requirements.txt");
+    }
   }
 }

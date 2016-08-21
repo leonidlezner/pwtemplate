@@ -1,10 +1,20 @@
-<?php if(count($page->slideshow) > 0): ?>
+<h1><?php echo $page->title; ?></h1>
 
 <ul>
-  <?php foreach($page->slideshow as $image): ?>
-    <?php $thumbnail = $image->height(100); ?>
-  <li><img src="<?php echo $thumbnail->httpUrl; ?>" /></li>
-  <?php endforeach; ?>
-</ul>
+<?php foreach($page->slideshow as $image): ?>
+  <li>
+    <h2><?php echo $image->description; ?></h2>
+    <a href="<?php echo $image->httpUrl; ?>"><img src="<?php echo $image->size(200, 200)->httpUrl; ?>" /></a>
+    <p><?php echo $image->width(200)->httpUrl; ?><p>
 
-<?php endif; ?>
+      <?php if(imageSizeExists($image, 130)): ?>
+
+      <?php else: ?>
+
+        <a href="<?php echo $page->httpUrl(); ?>" data-image="<?php echo $image->name; ?>" id="loadimage">Load</a>
+
+      <?php endif; ?>
+
+  </li>
+<?php endforeach; ?>
+</ul>

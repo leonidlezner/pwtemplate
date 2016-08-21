@@ -1,3 +1,4 @@
+// Style for the login form
 #login-form
   ul.Inputfields
     list-style none
@@ -11,6 +12,18 @@
       color red
 
   .InputfieldStateRequired
+    label:after
+      content "*"
+      margin-left 3px
+      color red
+
+// Default input form
+.InputfieldForm
+  p.error
+    color red
+    margin 0
+    
+  .required
     label:after
       content "*"
       margin-left 3px

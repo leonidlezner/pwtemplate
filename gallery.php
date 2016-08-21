@@ -1,3 +1,9 @@
 <?php
 
-$bodycopy = renderView($page);
+if($config->ajax) {
+
+
+
+} else {
+  $bodycopy = renderView($page);
+}

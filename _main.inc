@@ -1,3 +1,7 @@
+<?php if($config->ajax): ?>
+
+<?php else: ?>
+
 <!doctype html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
@@ -30,6 +34,14 @@
         <div id="top-bar">
           <?php /*echo getLinkForPage('template=login'); ?> | <?php echo getLinkForPage('template=logout');*/ ?>
         </div>
+        
+        <div id="main-bar">
+          <div id="main-menu">
+            <?php echo renderPartial('main-menu', array(
+              'root' => $pages->get('/')
+            )); ?>
+          </div>
+        </div>
 
         <?php echo renderPartial('messages'); ?>
 
@@ -46,3 +58,5 @@
         <?php echo versioned_javascript($config->urls->templates.'dist/js/main.js'); ?>
     </body>
 </html>
+
+<?php endif; ?>

@@ -6,6 +6,8 @@ include_once("includes/forms.php");
 
 $admin_name = "processwire";
 
+check_requirements();
+
 $site_url = $pages->get("/")->httpUrl;
 $site_name = $pages->get("/$admin_name/settings/")->site_name;
 $site_title = $pages->get("/$admin_name/settings/")->site_title;
@@ -20,5 +22,3 @@ $subnav = $page->children;
 
 # Store the page for edit link
 $target = $page;
-
-#checkUserPermission();

@@ -1,10 +1,13 @@
 <?php
 
-$menu = getModuleOrWarn("MarkupSimpleNavigation");
+$menu = $modules->get("MarkupSimpleNavigation");
+
+$rootPage = $parameter['root'];
 
 if($menu) {
   $excludes = array(
-    'blogpost'
+    'login',
+    'logout'
   );
 
   $options = array(
@@ -16,15 +19,16 @@ if($menu) {
       'max_levels' => null,
       'firstlast' => true,
       'collapsed' => false,
-      'show_root' => false,
+      # Set if you want to see the home link
+      'show_root' => true,
       'selector' => 'template!='.implode($excludes, '|'),
       'selector_field' => 'nav_selector',
       'outer_tpl' => sprintf('<ul class="%s">||</ul>', $parameter['class']),
       'inner_tpl' => '<ul>||</ul>',
       'list_tpl' => '<li%s>||</li>',
       'list_field_class' => '',
-      'item_tpl' => '<a href="{url}">{title}</a>',
-      'item_current_tpl' => '<a href="{url}">{title}</a>',
+      'item_tpl' => '<a href="{url}"><span>{title}</span></a>',
+      'item_current_tpl' => '<a href="{url}"><strong>{title}</strong></a>',
       'xtemplates' => '',
       'xitem_tpl' => '<a href="{url}">{title}</a>',
       'xitem_current_tpl' => '<span>{title}</span>',
@@ -34,7 +38,7 @@ if($menu) {
   );
 
 
-  echo $menu->render($options);
+  echo $menu->render($options, null, $rootPage);
 }
 
 ?>

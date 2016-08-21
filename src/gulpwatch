@@ -1,0 +1,6 @@
+#!/bin/sh
+
+# cd to the dir otherwise macOS is executing the script in the home directory
+cd $(dirname "${0}")
+
+gulp watch
